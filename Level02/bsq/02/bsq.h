@@ -1,0 +1,32 @@
+#ifndef BSQ_H
+#define BSQ_H
+
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+typedef struct s_square
+{
+	int size;
+	int i;
+	int j;
+} t_square;
+
+typedef struct s_map
+{
+	int		rows;
+	int		cols;
+	char	empty;
+	char	obstacle;
+	char	full;
+	char	**map;
+} t_map;
+
+void	init_map(t_map *map);
+void	init_square(t_square *square);
+void free_dp(int **dp, int rows);
+void free_array(char **array);
+int solve(t_map *map);
+int parse(t_map *map, FILE *f);
+
+#endif
